@@ -1,7 +1,7 @@
 import React from "react";
 
 function About() {
-  return <div>sobre</div>;
+  return <div>sobr</div>;
 }
 
 export default About;
