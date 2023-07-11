@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
+import PokemonService from "../services/PokemonService";
 
 function Home() {
+  const [listPokemon, setListPokemon] = useState([]);
+
+  async function fetchDataOptions(type) {
+    const list = await PokemonService.getPokemons(type);
+    setListPokemon(list);
+  }
+
+  useEffect(() => {
+    fetchDataOptions("Normal");
+  }, []);
+
   return (
     <div>
       <Card
