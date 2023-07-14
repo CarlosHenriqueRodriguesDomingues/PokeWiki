@@ -26,12 +26,16 @@ function Card({ photo, name, number, color }) {
             height: "130px",
             backgroundColor: "#696969"
           }}
-        ></div>
+        />
         <img
           src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/8.svg"
           alt="pokemon"
           className="PokemonImage"
         />
+      </div>
+      <div className="ConteinerDescription">
+        <span className="idpoke">#01</span>
+        <span className="namepoke">Wartotle</span>
       </div>
     </div>
   );

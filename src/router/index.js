@@ -3,14 +3,36 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "../pages/Home/Home";
 import Contact from "../pages/Contact";
 import About from "../pages/About";
+import Layout from "../components/Layout/Layout";
 
 function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contato" element={<Contact />} />
-        <Route path="/sobre" element={<About />} />
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <Home />
+            </Layout>
+          }
+        />
+        <Route
+          path="/contato"
+          element={
+            <Layout>
+              <Contact />
+            </Layout>
+          }
+        />
+        <Route
+          path="/sobre"
+          element={
+            <Layout>
+              <About />
+            </Layout>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

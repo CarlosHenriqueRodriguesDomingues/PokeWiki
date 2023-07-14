@@ -21,12 +21,12 @@ class PokemonService {
 
       listPokemon.push({
         ...pokemon,
-        photo: descriptionPokemon.sprites.other["official-artwork"].front_default
+        photo: descriptionPokemon.sprites.other["dream_world"].front_default
       });
     });
 
     console.log(listPokemon);
-    return listPokemon;
+    return listPokemon.slice(0, 10);
   }
 }
 
