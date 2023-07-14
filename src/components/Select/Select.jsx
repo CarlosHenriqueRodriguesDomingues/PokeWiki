@@ -1,11 +1,7 @@
 import React from "react";
 import "./Select.css";
 
-function Select(props) {
-  const options = props.options;
-  const setPokeType = props.setPokeType;
-  const pokeType = props.pokeType;
-
+function Select({ options, setPokeType, pokeType, fetchDataOptions }) {
   const handleChange = event => {
     setPokeType(event.target.value);
   };

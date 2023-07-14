@@ -8,15 +8,17 @@ class PokemonService {
 
     const pokemons = await PokemonRepository.getPokemonsType(numberType);
 
-    const retorno = pokemons.pokemon.map(pokemon => {
-      return {
-        name: pokemon.pokemon.name,
-        url: pokemon.pokemon.url,
-        number: pokemon.pokemon.url.split("/")[6]
-      };
-    });
+    const retorno = pokemons.pokemon
+      .map(pokemon => {
+        return {
+          name: pokemon.pokemon.name,
+          url: pokemon.pokemon.url,
+          number: pokemon.pokemon.url.split("/")[6]
+        };
+      })
+      .slice(0, 30);
 
-    retorno.forEach(async pokemon => {
+    await retorno.forEach(async pokemon => {
       const descriptionPokemon = await PokemonRepository.getDescriptionPokemon(pokemon.number);
 
       listPokemon.push({
@@ -25,8 +27,7 @@ class PokemonService {
       });
     });
 
-    console.log(listPokemon);
-    return listPokemon.slice(0, 10);
+    return listPokemon;
   }
 }
 

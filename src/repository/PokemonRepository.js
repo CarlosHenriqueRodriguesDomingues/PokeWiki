@@ -2,7 +2,6 @@ import axios from "../utils/AxiosInstance";
 
 class PokemonRepository {
   async getPokemonsType(numberType) {
-    console.log("teste");
     const response = await axios.get(`/type/${numberType}`, {});
     if (!response) {
       return;

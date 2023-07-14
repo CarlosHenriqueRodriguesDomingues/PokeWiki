@@ -40,8 +40,8 @@
 html,
 body,
 #root {
-  height: fit-content;
-  overflow-y: hidden;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 ul {
