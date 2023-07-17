@@ -8,15 +8,13 @@ class PokemonService {
 
     const pokemons = await PokemonRepository.getPokemonsType(numberType);
 
-    const retorno = pokemons.pokemon
-      .map(pokemon => {
-        return {
-          name: pokemon.pokemon.name,
-          url: pokemon.pokemon.url,
-          number: pokemon.pokemon.url.split("/")[6]
-        };
-      })
-      .slice(0, 30);
+    const retorno = pokemons.pokemon.map(pokemon => {
+      return {
+        name: pokemon.pokemon.name,
+        url: pokemon.pokemon.url,
+        number: pokemon.pokemon.url.split("/")[6]
+      };
+    });
 
     await Promise.all(
       retorno.map(async pokemon => {
@@ -29,7 +27,7 @@ class PokemonService {
       })
     );
 
-    return listPokemon;
+    return listPokemon.filter(pokemon => pokemon.photo != null);
   }
 }
 
