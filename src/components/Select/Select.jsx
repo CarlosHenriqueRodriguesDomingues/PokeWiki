@@ -1,11 +1,7 @@
 import React from "react";
 import "./Select.css";
 
-function Select({ options, setPokeType, pokeType, fetchDataOptions }) {
-  const handleChange = event => {
-    setPokeType(event.target.value);
-  };
-
+function Select({ options, handleChange, pokeType }) {
   return (
     <div className="ConteinerSelect">
       <label className="Description">Selecione a classe do seu pokemon</label>

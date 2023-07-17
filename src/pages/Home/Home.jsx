@@ -10,22 +10,23 @@ function Home() {
   const [pokeType, setPokeType] = useState("Normal");
   const [isLoading, setIsLoading] = useState(false);
 
+  const handleChange = event => {
+    setPokeType(event.target.value);
+  };
+
+  const fetchData = async pokeType => {
+    setIsLoading(true);
+    const newList = await PokemonService.getPokemons(pokeType);
+    setListPokemon(newList);
+    setIsLoading(false);
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      const newList = await PokemonService.getPokemons(pokeType);
-      setListPokemon(newList);
-      setIsLoading(false);
-    };
-
-    fetchData();
-  }, []);
-
-  console.log(listPokemon);
+    fetchData(pokeType);
+  }, [pokeType]);
 
   return (
     <>
-      <Select pokeType={pokeType} setPokeType={setPokeType} options={Object.keys(TypePokemon)} />
+      <Select pokeType={pokeType} handleChange={handleChange} options={Object.keys(TypePokemon)} />
       <div className="ContainerCards">
         {isLoading ? (
           <p>Loading...</p>

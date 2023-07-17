@@ -18,14 +18,16 @@ class PokemonService {
       })
       .slice(0, 30);
 
-    await retorno.forEach(async pokemon => {
-      const descriptionPokemon = await PokemonRepository.getDescriptionPokemon(pokemon.number);
+    await Promise.all(
+      retorno.map(async pokemon => {
+        const descriptionPokemon = await PokemonRepository.getDescriptionPokemon(pokemon.number);
 
-      listPokemon.push({
-        ...pokemon,
-        photo: descriptionPokemon.sprites.other["dream_world"].front_default
-      });
-    });
+        listPokemon.push({
+          ...pokemon,
+          photo: descriptionPokemon.sprites.other["dream_world"].front_default
+        });
+      })
+    );
 
     return listPokemon;
   }
