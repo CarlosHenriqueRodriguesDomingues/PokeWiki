@@ -39,6 +39,7 @@ function Home() {
                 name={pokemon.name}
                 number={pokemon.number}
                 key={index + pokemon.name}
+                pokeType={pokeType}
               />
             );
           })

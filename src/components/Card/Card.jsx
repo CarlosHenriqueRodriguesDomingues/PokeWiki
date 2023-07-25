@@ -1,7 +1,8 @@
 import React from "react";
 import "./Card.css";
+import { TypePokemon } from "../../utils/EnumPokemon";
 
-function Card({ photo, name, number, color }) {
+function Card({ photo, name, number, pokeType }) {
   return (
     <div style={{ paddingBottom: "20px" }}>
       <div className="CardStyle">
@@ -25,7 +26,7 @@ function Card({ photo, name, number, color }) {
               content: "",
               width: "141px",
               height: "130px",
-              backgroundColor: "#696969"
+              backgroundColor: TypePokemon[pokeType].color
             }}
           />
           <img src={photo} alt="pokemon" className="PokemonImage" />

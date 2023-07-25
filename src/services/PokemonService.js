@@ -4,7 +4,7 @@ import PokemonRepository from "../repository/PokemonRepository";
 class PokemonService {
   async getPokemons(type) {
     const listPokemon = [];
-    const numberType = TypePokemon[type];
+    const numberType = TypePokemon[type].number;
 
     const pokemons = await PokemonRepository.getPokemonsType(numberType);
 
