@@ -27,7 +27,10 @@ class PokemonService {
       })
     );
 
-    return listPokemon.filter(pokemon => pokemon.photo != null);
+    return listPokemon.filter(pokemon => pokemon.photo != null).sort(this.compareNumber);
+  }
+  compareNumber(a, b) {
+    return parseInt(a.number) - parseInt(b.number);
   }
 }
 
